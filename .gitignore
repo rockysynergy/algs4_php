@@ -1,0 +1,4 @@
+vendor/
+*.swp
+debug.txt
+*.class

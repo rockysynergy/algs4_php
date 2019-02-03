@@ -1,0 +1,15 @@
+{
+    "name": "Orq.PHP/Algs",
+    "description": "The php implementation of alighrithms 4 book",
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Orq\\PHP\\Algs\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
