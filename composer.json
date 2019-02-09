@@ -2,7 +2,7 @@
     "name": "Orq.PHP/Algs",
     "description": "The php implementation of alighrithms 4 book",
     "require": {
-        "php": "^7.2"
+        "php": "^7.0"
     },
     "autoload": {
         "psr-4": {
