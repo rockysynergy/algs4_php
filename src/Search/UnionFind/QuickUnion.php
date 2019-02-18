@@ -53,8 +53,14 @@ class QuickUnion  implements UnionFindInterface  {
      */
     public function find($p) {
         $this->validate($p);
-        while ($p != $this->parent[$p]) {
-            $p = $this->parent[$p];
+        $root = $p;
+        while ($root != $this->parent[$root]) {
+            $root = $this->parent[$root];
+        }
+        while ($p != $root) {
+            $pNew = $this->parent[$p];
+            $this->parent[$p] = $root;
+            $p = $pNew;
         }
         return $p;
     }
