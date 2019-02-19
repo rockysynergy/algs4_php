@@ -1,15 +1,15 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use Orq\PHP\Algs\Sort\ShellSort;
+use Orq\PHP\Algs\Sort\MergeSortBottomUp;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-class ShellSortTest extends TestCase {
+class MergeSortBottomUpTest extends TestCase {
     /**
      * @test
      */
     public function sortWorks() {
-        $sorter = new ShellSort();
+        $sorter = new MergeSortBottomUp();
         $a = [6, 4, 3, 9, 14];
         $numbers = [];
         for ($i = 0; $i < count($a); $i++) {
@@ -17,29 +17,31 @@ class ShellSortTest extends TestCase {
             $numbers[$i] = new Number($a[$i]);
         }
         
-        ShellSort::sort($numbers);
+        MergeSortBottomUp::sort($numbers);
         $this->assertSame(3, $numbers[0]->getValue());
         $this->assertSame(6, $numbers[2]->getValue());
     }
 
+    
     /**
-     * @test
+     * 
      */
     public function sortWithCompareFuncWorks() {
-        $sorter = new ShellSort();
+        $sorter = new MergeSort();
         $a = [6, 4, 3, 9, 14];
         $numbers = [];
         for ($i = 0; $i < count($a); $i++) {
             $numbers[$i] = new Number($a[$i]);
         }
         
-        ShellSort::sortWithCompareFunc($numbers, function ($v, $w) {
+        MergeSort::sortWithCompareFunc($numbers, function ($v, $w) {
             if ($v->getValue() < $w->getValue()) return -1;
             else return 1;
         });
         $this->assertSame(3, $numbers[0]->getValue());
         $this->assertSame(6, $numbers[2]->getValue());
     }
+
 }
 
 class Number implements \Orq\PHP\Algs\Sort\ComparableInterface {
