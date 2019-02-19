@@ -1,15 +1,15 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use Orq\PHP\Algs\Sort\MergeSortBottomUp;
+use Orq\PHP\Algs\Sort\QuickSort;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-class MergeSortBottomUpTest extends TestCase {
+class QuickSortTest extends TestCase {
     /**
      * @test
      */
     public function sortWorks() {
-        $sorter = new MergeSortBottomUp();
+        $sorter = new QuickSort();
         $a = [6, 4, 3, 9, 14];
         $numbers = [];
         for ($i = 0; $i < count($a); $i++) {
@@ -17,9 +17,24 @@ class MergeSortBottomUpTest extends TestCase {
             $numbers[$i] = new Number($a[$i]);
         }
         
-        MergeSortBottomUp::sort($numbers);
+        QuickSort::sort($numbers);
         $this->assertSame(3, $numbers[0]->getValue());
         $this->assertSame(6, $numbers[2]->getValue());
+    }
+
+    /**
+     * @test
+     */
+    public function selectKthItem() {
+        $sorter = new QuickSort();
+        $a = [6, 4, 3, 9, 14];
+        $numbers = [];
+        for ($i = 0; $i < count($a); $i++) {            
+            $numbers[$i] = new Number($a[$i]);
+        }
+        
+        QuickSort::sort($numbers);
+        $this->assertSame(4, QuickSort::select($numbers, 1)->getValue());
     }
 
 }
