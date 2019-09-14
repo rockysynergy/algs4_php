@@ -1,4 +1,6 @@
 <?php
+namespace test\Util;
+
 use PHPUnit\Framework\TestCase;
 
 class BagTest extends TestCase {

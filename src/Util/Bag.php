@@ -26,7 +26,7 @@ class Bag implements BagInterface {
      * @return boolean
      */
     public function isEmpty() {
-        return count($items) === 0;
+        return count($this->items) === 0;
     }
 
     /**
